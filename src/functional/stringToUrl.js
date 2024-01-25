@@ -1,3 +1,5 @@
+// Apply Functional Programming to Convert Strings to URL Slugs
+
 function urlSlug(title) {
   const newArr = title
     .split(' ')
