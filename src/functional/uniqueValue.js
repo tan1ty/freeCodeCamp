@@ -4,6 +4,9 @@ import * as R from 'ramda';
 Compare two arrays and return a new array with any items only found in one of the two given arrays,
 but not both. In other words, return the symmetric difference of the two arrays.*/
 
+const arr1 = ['diorite', 'andesite', 'grass', 'pink wool', 'dead shrub'];
+const arr2 = ['diorite', 'andesite', 'grass', 'dirt', 'dead shrub'];
+
 //solution with Set for big data
 
 function diffArray(arr1, arr2) {
@@ -16,10 +19,7 @@ function diffArray(arr1, arr2) {
   return [...diffOne, ...diffTwo];
 }
 
-diffArray(
-  ['diorite', 'andesite', 'grass', 'dirt', 'pink wool', 'dead shrub'],
-  ['diorite', 'andesite', 'grass', 'dirt', 'dead shrub']
-);
+diffArray(arr1, arr2);
 
 //simple solution
 
@@ -28,11 +28,8 @@ function diffArr(arr1, arr2) {
   return newArr.filter((item) => !arr1.includes(item) || !arr2.includes(item));
 }
 
-diffArr([1, 4, 6, 8, 9], [4, 7, 5, 8]);
+diffArr(arr1, arr2);
 
 //with Ramda library
 
-const diff = R.difference(
-  ['andesite', 'grass', 'dirt', 'pink wool', 'dead shrub'],
-  ['diorite', 'andesite', 'grass', 'dirt', 'dead shrub']
-);
+const diff = R.difference(arr1, arr2);
