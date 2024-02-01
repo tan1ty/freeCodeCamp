@@ -5,17 +5,10 @@
  if it is to be included in the returned array.*/
 
 function whatIsInAName(collection, source) {
-  const findObj = (obj) => {
-    const prop = Object.keys(source);
-    for (let i = 0; i < prop.length; i++) {
-      if (obj.hasOwnProperty(prop[i]) && obj[prop[i]] === source[prop[i]]) {
-        return true;
-      }
-      return false;
-    }
-  };
-
-  return collection.filter(findObj);
+  const props = Object.keys(source);
+  return collection.filter((obj) =>
+    props.every((key) => obj.hasOwnProperty(key) && obj[key] === source[key])
+  );
 }
 
 whatIsInAName(
